@@ -64,9 +64,9 @@
 <div id="text"></div><span class="cursor"></span>
 
 <!-- 🎵 배경음악 (자동재생 / 무한반복) -->
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b2c38bfa4.mp3" type="audio/mpeg">
-</audio>
+  <audio autoplay loop>
+  <source src="background.mp3" type="audio/mpeg">
+  </audio>
 
 <script>
 /* ✍️ 타이핑 텍스트 */
@@ -109,7 +109,7 @@ const content = `
 `;
 
 let i = 0;
-const speed = 45;
+const speed = 30;
 
 function typeWriter() {
   if (i < content.length) {
