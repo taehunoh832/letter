@@ -64,10 +64,18 @@
 <div id="text"></div><span class="cursor"></span>
 
 <!-- 🎵 배경음악 (자동재생 / 무한반복) -->
-  <audio autoplay loop>
+<audio id="bgm" loop>
   <source src="background.mp3" type="audio/mpeg">
-  </audio>
+</audio>
 
+<script>
+const bgm = document.getElementById("bgm");
+document.body.addEventListener("click", () => {
+  bgm.play();
+}, { once: true });
+</script>
+
+  
 <script>
 /* ✍️ 타이핑 텍스트 */
 const content = `
