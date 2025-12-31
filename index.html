@@ -67,7 +67,7 @@
 
 <!-- 🎵 배경음악 (자동재생 / 무한반복) -->
 <audio id="bgm" loop>
-  <source src="background1.mp3" type="audio/mpeg">
+  <source src="background2.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -84,11 +84,10 @@ const speed = 60;
 const textElement = document.getElementById("text");
 
 /* 1️⃣ 안내 문구 */
-const introText = `(화면을 한 번 클릭해주세요)`;
+const introText = `(여기를 한 번 클릭해주세요)`;
 
 /* 2️⃣ 본문 */
 const mainText = `
-
 안녕하세요,
 
 2025년의 마지막 날입니다.
@@ -166,7 +165,7 @@ typeText(introText, () => {
       typeText(mainText);
     }, 2000);
 
-  }, 5000); // ✅ 5초
+  }, 4000); // ✅ 5초
 });
 
 function createSnow() {
