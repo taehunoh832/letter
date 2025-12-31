@@ -79,7 +79,7 @@ document.body.addEventListener("click", () => {
 
   
 <script>
-let i = 0;
+/* ✍️ 타이핑 설정 */
 const speed = 60;
 const textElement = document.getElementById("text");
 
@@ -151,12 +151,22 @@ function typeText(text, callback) {
   typing();
 }
 
-/* 실행 순서 */
+/* 실행 */
 typeText(introText, () => {
+  // ⏱️ 5초 유지
   setTimeout(() => {
-    textElement.innerHTML += "<br><br>";
-    typeText(mainText);
-  }, 3000); // ⏱️ 3초 대기
+    // 🌫️ 페이드아웃
+    textElement.style.transition = "opacity 2s";
+    textElement.style.opacity = "0";
+
+    // 페이드아웃 끝난 뒤 본문 시작
+    setTimeout(() => {
+      textElement.innerHTML = "";
+      textElement.style.opacity = "1";
+      typeText(mainText);
+    }, 2000);
+
+  }, 5000); // ✅ 5초
 });
 
 function createSnow() {
