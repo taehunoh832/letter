@@ -79,11 +79,15 @@ document.body.addEventListener("click", () => {
 
   
 <script>
-/* ✍️ 타이핑 텍스트 */
-const content = `
-(화면을 한 번 클릭해주세요)
+let i = 0;
+const speed = 60;
+const textElement = document.getElementById("text");
 
+/* 1️⃣ 안내 문구 */
+const introText = `(화면을 한 번 클릭해주세요)`;
 
+/* 2️⃣ 본문 */
+const mainText = `
 
 안녕하세요,
 
@@ -131,18 +135,30 @@ const content = `
 – 2025년 12월 31일
 `;
 
-let i = 0;
-const speed = 60;
-
-function typeWriter() {
-  if (i < content.length) {
-    document.getElementById("text").innerHTML +=
-      content.charAt(i) === "\n" ? "<br>" : content.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
+/* 타이핑 함수 */
+function typeText(text, callback) {
+  let idx = 0;
+  function typing() {
+    if (idx < text.length) {
+      textElement.innerHTML +=
+        text.charAt(idx) === "\n" ? "<br>" : text.charAt(idx);
+      idx++;
+      setTimeout(typing, speed);
+    } else if (callback) {
+      callback();
+    }
   }
+  typing();
 }
-typeWriter();
+
+/* 실행 순서 */
+typeText(introText, () => {
+  setTimeout(() => {
+    textElement.innerHTML += "<br><br>";
+    typeText(mainText);
+  }, 3000); // ⏱️ 3초 대기
+});
+</script>
 
 function createSnow() {
   const snow = document.createElement("div");
